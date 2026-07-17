@@ -1,0 +1,12 @@
+[
+  { "id": 1, "no_kk": "3204010101230001", "kepala_keluarga": "Ahmad Suryana", "rt": "01", "rw": "05", "jumlah_anggota": 5, "alamat": "Kp. Cisabaru RT 01/05 No. 12", "foto_rumah": "" },
+  { "id": 2, "no_kk": "3204010101230002", "kepala_keluarga": "Dedi Kurniawan", "rt": "02", "rw": "05", "jumlah_anggota": 4, "alamat": "Kp. Cisabaru RT 02/05 No. 04", "foto_rumah": "" },
+  { "id": 3, "no_kk": "3204010101230003", "kepala_keluarga": "Yanto Hidayat", "rt": "03", "rw": "05", "jumlah_anggota": 3, "alamat": "Kp. Cisabaru RT 03/05 No. 21", "foto_rumah": "" },
+  { "id": 4, "no_kk": "3204010101230004", "kepala_keluarga": "Rina Marlina", "rt": "01", "rw": "05", "jumlah_anggota": 6, "alamat": "Kp. Cisabaru RT 01/05 No. 08", "foto_rumah": "" },
+  { "id": 5, "no_kk": "3204010101230005", "kepala_keluarga": "Bambang Setiawan", "rt": "04", "rw": "05", "jumlah_anggota": 2, "alamat": "Kp. Cisabaru RT 04/05 No. 15", "foto_rumah": "" },
+  { "id": 6, "no_kk": "3204010101230006", "kepala_keluarga": "Siti Aisyah", "rt": "02", "rw": "05", "jumlah_anggota": 4, "alamat": "Kp. Cisabaru RT 02/05 No. 19", "foto_rumah": "" },
+  { "id": 7, "no_kk": "3204010101230007", "kepala_keluarga": "Wawan Gunawan", "rt": "03", "rw": "05", "jumlah_anggota": 5, "alamat": "Kp. Cisabaru RT 03/05 No. 02", "foto_rumah": "" },
+  { "id": 8, "no_kk": "3204010101230008", "kepala_keluarga": "Euis Komariah", "rt": "01", "rw": "05", "jumlah_anggota": 3, "alamat": "Kp. Cisabaru RT 01/05 No. 25", "foto_rumah": "" },
+  { "id": 9, "no_kk": "3204010101230009", "kepala_keluarga": "Asep Saepudin", "rt": "04", "rw": "05", "jumlah_anggota": 4, "alamat": "Kp. Cisabaru RT 04/05 No. 07", "foto_rumah": "" },
+  { "id": 10, "no_kk": "3204010101230010", "kepala_keluarga": "Nining Sumarni", "rt": "02", "rw": "05", "jumlah_anggota": 5, "alamat": "Kp. Cisabaru RT 02/05 No. 11", "foto_rumah": "" }
+]

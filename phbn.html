@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHBN — Sistem Informasi Kampung Cisabaru</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="mark">C</div>
+      <div><b>Cisabaru</b><span>Smart Village</span></div>
+    </div>
+    <nav class="sidebar__scroll">
+      <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i>Dashboard</a>
+      <div class="grup-label">Data Penduduk</div>
+      <a href="kk.html" class="nav-item"><i class="fa-solid fa-people-roof"></i>Data KK</a>
+      <div class="grup-label">Iuran</div>
+      <a href="iuran.html" class="nav-item"><i class="fa-solid fa-coins"></i>Iuran &amp; Rekap</a>
+      <div class="grup-label">Kegiatan</div>
+      <a href="phbn.html" class="nav-item aktif"><i class="fa-solid fa-flag"></i>PHBN</a>
+      <a href="galeri.html" class="nav-item"><i class="fa-regular fa-images"></i>Galeri Foto</a>
+      <div class="grup-label">Lainnya</div>
+      <a href="#" class="nav-item"><i class="fa-solid fa-file-lines"></i>Surat</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-chart-simple"></i>Laporan</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i>Pengaturan</a>
+    </nav>
+    <div class="sidebar__foot">© 2026 Kampung Cisabaru<br>RW 05, Jawa Barat</div>
+  </aside>
+
+  <div class="konten">
+    <header class="topbar">
+      <div class="topbar__kiri">
+        <button class="tombol-menu-mobile" data-toggle-sidebar aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="topbar__judul">PHBN — Peringatan Hari Besar Nasional</div>
+      </div>
+      <div class="topbar__kanan">
+        <button class="ikon-bulat" data-toggle-gelap aria-label="Ganti mode gelap"></button>
+        <div class="profil-chip"><div class="avatar" data-inisial-pengguna>A</div><span data-nama-pengguna>Admin</span></div>
+      </div>
+    </header>
+
+    <main class="konten__isi">
+      <div id="daftarKegiatan"></div>
+
+      <div class="panel">
+        <div class="panel__head"><div><h3>Panitia</h3><p>Susunan panitia kegiatan aktif</p></div></div>
+        <div style="overflow-x:auto;">
+          <table class="tabel">
+            <thead><tr><th>Nama</th><th>Jabatan</th><th>Kegiatan</th></tr></thead>
+            <tbody id="tabelPanitia"><tr><td colspan="3"><div class="skeleton" style="height:20px;"></div></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+(async () => {
+  const sesi = CISABARU.siapkanHalaman();
+  if (!sesi) return;
+
+  const data = await CISABARU.muatJSON("data/phbn.json");
+
+  document.getElementById("daftarKegiatan").innerHTML = data.kegiatan_aktif
+    .map((k) => {
+      const persen = Math.round((k.terpakai / k.anggaran) * 100);
+      return `
+      <div class="panel">
+        <div class="panel__head">
+          <div>
+            <h3>${k.nama}</h3>
+            <p>${new Date(k.tanggal).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" })} · Ketua: ${k.panitia_ketua}</p>
+          </div>
+          <span class="status-pill ${k.status === "Persiapan" ? "belum" : "lunas"}">${k.status}</span>
+        </div>
+        <div class="grid-dua">
+          <div>
+            <p style="font-size:12.5px; font-weight:700; color:var(--arang-lunak); margin-bottom:8px; text-transform:uppercase; letter-spacing:.04em;">Agenda Kegiatan</p>
+            <ul style="display:flex; flex-direction:column; gap:8px;">
+              ${k.agenda.map((a) => `<li style="font-size:14px;"><i class="fa-solid fa-check" style="color:var(--hijau-daun); margin-right:8px;"></i>${a}</li>`).join("")}
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:12.5px; font-weight:700; color:var(--arang-lunak); margin-bottom:8px; text-transform:uppercase; letter-spacing:.04em;">Anggaran</p>
+            <div style="font-family:var(--font-judul); font-size:22px; font-weight:600; margin-bottom:4px;">
+              ${CISABARU.formatRupiah(k.terpakai)} <span style="font-size:14px; color:var(--arang-lunak); font-family:var(--font-teks); font-weight:500;">/ ${CISABARU.formatRupiah(k.anggaran)}</span>
+            </div>
+            <div style="height:8px; background:var(--garis); border-radius:99px; overflow:hidden; margin-top:8px;">
+              <div style="height:100%; width:${persen}%; background:var(--emas-panen);"></div>
+            </div>
+            <p class="text-lunak" style="font-size:12px; margin-top:6px;">${persen}% anggaran terpakai</p>
+          </div>
+        </div>
+      </div>`;
+    })
+    .join("");
+
+  document.getElementById("tabelPanitia").innerHTML = data.panitia
+    .map((p) => `<tr><td><strong>${p.nama}</strong></td><td>${p.jabatan}</td><td>${p.kegiatan}</td></tr>`)
+    .join("");
+})();
+</script>
+</body>
+</html>

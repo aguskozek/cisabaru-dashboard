@@ -1,0 +1,10 @@
+[
+  { "id": 1, "judul": "Gotong Royong Bersihkan Selokan", "kategori": "Gotong Royong", "tanggal": "2026-06-14", "url": "https://picsum.photos/seed/cisabaru01/600/450" },
+  { "id": 2, "judul": "Kerja Bakti Balai Warga", "kategori": "Kerja Bakti", "tanggal": "2026-06-21", "url": "https://picsum.photos/seed/cisabaru02/600/450" },
+  { "id": 3, "judul": "Musyawarah Rencana RT 03", "kategori": "Musyawarah", "tanggal": "2026-06-28", "url": "https://picsum.photos/seed/cisabaru03/600/450" },
+  { "id": 4, "judul": "Posyandu Balita Bulanan", "kategori": "Posyandu", "tanggal": "2026-07-02", "url": "https://picsum.photos/seed/cisabaru04/600/450" },
+  { "id": 5, "judul": "Pengajian Rutin Malam Jumat", "kategori": "Pengajian", "tanggal": "2026-07-05", "url": "https://picsum.photos/seed/cisabaru05/600/450" },
+  { "id": 6, "judul": "Rapat Panitia HUT RI", "kategori": "PHBN", "tanggal": "2026-07-08", "url": "https://picsum.photos/seed/cisabaru06/600/450" },
+  { "id": 7, "judul": "Gotong Royong Perbaikan Jalan", "kategori": "Gotong Royong", "tanggal": "2026-07-10", "url": "https://picsum.photos/seed/cisabaru07/600/450" },
+  { "id": 8, "judul": "Posyandu Lansia", "kategori": "Posyandu", "tanggal": "2026-07-12", "url": "https://picsum.photos/seed/cisabaru08/600/450" }
+]

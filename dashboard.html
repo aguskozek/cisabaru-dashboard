@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Sistem Informasi Kampung Cisabaru</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="mark">C</div>
+      <div><b>Cisabaru</b><span>Smart Village</span></div>
+    </div>
+    <nav class="sidebar__scroll">
+      <a href="dashboard.html" class="nav-item aktif"><i class="fa-solid fa-house"></i>Dashboard</a>
+
+      <div class="grup-label">Data Penduduk</div>
+      <a href="kk.html" class="nav-item"><i class="fa-solid fa-people-roof"></i>Data KK</a>
+
+      <div class="grup-label">Iuran</div>
+      <a href="iuran.html" class="nav-item"><i class="fa-solid fa-coins"></i>Iuran &amp; Rekap</a>
+
+      <div class="grup-label">Kegiatan</div>
+      <a href="phbn.html" class="nav-item"><i class="fa-solid fa-flag"></i>PHBN</a>
+      <a href="galeri.html" class="nav-item"><i class="fa-regular fa-images"></i>Galeri Foto</a>
+
+      <div class="grup-label">Lainnya</div>
+      <a href="#" class="nav-item"><i class="fa-solid fa-file-lines"></i>Surat</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-chart-simple"></i>Laporan</a>
+      <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i>Pengaturan</a>
+    </nav>
+    <div class="sidebar__foot">© 2026 Kampung Cisabaru<br>RW 05, Jawa Barat</div>
+  </aside>
+
+  <div class="konten">
+    <header class="topbar">
+      <div class="topbar__kiri">
+        <button class="tombol-menu-mobile" data-toggle-sidebar aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+        <div class="topbar__judul">Dashboard</div>
+      </div>
+      <div class="topbar__kanan">
+        <div class="topbar__cari"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Cari warga, iuran…"></div>
+        <button class="ikon-bulat" data-toggle-gelap aria-label="Ganti mode gelap"></button>
+        <button class="ikon-bulat" aria-label="Notifikasi"><i class="fa-regular fa-bell"></i><span class="badge-notif">3</span></button>
+        <div class="profil-chip">
+          <div class="avatar" data-inisial-pengguna>A</div>
+          <span data-nama-pengguna>Admin</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="konten__isi">
+
+      <div class="grid-statistik">
+        <div class="kartu-stat">
+          <div class="kartu-stat__ikon hijau"><i class="fa-solid fa-people-roof"></i></div>
+          <div class="kartu-stat__angka" id="statTotalKK">—</div>
+          <div class="kartu-stat__label">Total Kepala Keluarga</div>
+        </div>
+        <div class="kartu-stat">
+          <div class="kartu-stat__ikon hijau"><i class="fa-solid fa-user-group"></i></div>
+          <div class="kartu-stat__angka" id="statTotalWarga">—</div>
+          <div class="kartu-stat__label">Total Warga</div>
+        </div>
+        <div class="kartu-stat">
+          <div class="kartu-stat__ikon emas"><i class="fa-solid fa-coins"></i></div>
+          <div class="kartu-stat__angka" id="statIuranBulanIni">—</div>
+          <div class="kartu-stat__label">Iuran Bulan Ini</div>
+          <div class="kartu-stat__delta naik"><i class="fa-solid fa-arrow-up"></i> 18% dari bulan lalu</div>
+        </div>
+        <div class="kartu-stat">
+          <div class="kartu-stat__ikon terra"><i class="fa-solid fa-flag"></i></div>
+          <div class="kartu-stat__angka" id="statPHBNAktif">—</div>
+          <div class="kartu-stat__label">Kegiatan PHBN Aktif</div>
+        </div>
+        <div class="kartu-stat">
+          <div class="kartu-stat__ikon hijau"><i class="fa-regular fa-images"></i></div>
+          <div class="kartu-stat__angka" id="statGaleri">—</div>
+          <div class="kartu-stat__label">Foto di Galeri</div>
+        </div>
+        <div class="kartu-stat">
+          <div class="kartu-stat__ikon emas"><i class="fa-solid fa-house-circle-check"></i></div>
+          <div class="kartu-stat__angka" id="statBelumBayar">—</div>
+          <div class="kartu-stat__label">KK Belum Bayar Iuran</div>
+        </div>
+      </div>
+
+      <div class="grid-dua">
+        <div class="panel">
+          <div class="panel__head">
+            <div><h3>Rekap Iuran Bulanan</h3><p>Tahun 2026 · dalam Rupiah</p></div>
+            <a href="iuran.html" class="btn">Lihat detail <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <canvas id="grafikIuran" height="230"></canvas>
+        </div>
+
+        <div class="panel">
+          <div class="panel__head">
+            <div><h3>Kegiatan PHBN Terdekat</h3><p>Status persiapan</p></div>
+          </div>
+          <div class="linimasa" id="linimasaPHBN">
+            <div class="skeleton" style="height:60px;margin-bottom:16px;"></div>
+            <div class="skeleton" style="height:60px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel__head">
+          <div><h3>Pembayaran Iuran Terbaru</h3><p>10 transaksi terakhir</p></div>
+          <a href="iuran.html" class="btn utama">Kelola Iuran</a>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="tabel">
+            <thead><tr><th>Nama</th><th>RT</th><th>Bulan</th><th>Nominal</th><th>Status</th></tr></thead>
+            <tbody id="tabelIuranTerbaru">
+              <tr><td colspan="5"><div class="skeleton" style="height:20px;"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="js/app.js"></script>
+<script>
+  const sesi = CISABARU.siapkanHalaman();
+  if (sesi) {
+    (async () => {
+      const [kk, iuran, phbn, galeri] = await Promise.all([
+        CISABARU.muatJSON("data/kk.json"),
+        CISABARU.muatJSON("data/iuran.json"),
+        CISABARU.muatJSON("data/phbn.json"),
+        CISABARU.muatJSON("data/galeri.json"),
+      ]);
+
+      document.getElementById("statTotalKK").textContent = kk.length;
+      document.getElementById("statTotalWarga").textContent = kk.reduce((s, k) => s + k.jumlah_anggota, 0);
+
+      const bulanTerbaru = iuran.rekap_bulanan[iuran.rekap_bulanan.length - 1];
+      document.getElementById("statIuranBulanIni").textContent = CISABARU.formatRupiah(bulanTerbaru.total);
+
+      document.getElementById("statPHBNAktif").textContent = phbn.kegiatan_aktif.length;
+      document.getElementById("statGaleri").textContent = galeri.length;
+      document.getElementById("statBelumBayar").textContent =
+        iuran.pembayaran.filter((p) => p.status === "Belum Lunas").length;
+
+      // Grafik
+      const ctx = document.getElementById("grafikIuran");
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: iuran.rekap_bulanan.map((r) => r.bulan),
+          datasets: [{
+            label: "Total Iuran",
+            data: iuran.rekap_bulanan.map((r) => r.total),
+            borderColor: "#1F4B3F",
+            backgroundColor: "rgba(31,75,63,0.10)",
+            borderWidth: 2.5,
+            pointBackgroundColor: "#C99A3B",
+            pointRadius: 4,
+            fill: true,
+            tension: 0.35,
+          }],
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { ticks: { callback: (v) => "Rp" + v / 1000000 + "jt" }, grid: { color: "#E4DCC8" } },
+            x: { grid: { display: false } },
+          },
+        },
+      });
+
+      // Linimasa PHBN
+      const elLinimasa = document.getElementById("linimasaPHBN");
+      elLinimasa.innerHTML = phbn.kegiatan_aktif
+        .map(
+          (k) => `
+        <div class="linimasa__item">
+          <div class="linimasa__waktu">${new Date(k.tanggal).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" })}</div>
+          <div class="linimasa__judul">${k.nama}</div>
+          <div class="linimasa__desc">Status: ${k.status} · Anggaran ${CISABARU.formatRupiah(k.anggaran)}</div>
+        </div>`
+        )
+        .join("");
+
+      // Tabel iuran terbaru
+      const tbody = document.getElementById("tabelIuranTerbaru");
+      tbody.innerHTML = iuran.pembayaran
+        .slice(0, 10)
+        .map(
+          (p) => `
+        <tr>
+          <td>${p.nama}</td>
+          <td><span class="chip-rt">RT ${p.rt}</span></td>
+          <td>${p.bulan} ${p.tahun}</td>
+          <td>${CISABARU.formatRupiah(p.nominal)}</td>
+          <td><span class="status-pill ${p.status === "Lunas" ? "lunas" : "belum"}">${p.status === "Lunas" ? "✓ Lunas" : "✕ Belum Lunas"}</span></td>
+        </tr>`
+        )
+        .join("");
+    })();
+  }
+</script>
+</body>
+</html>

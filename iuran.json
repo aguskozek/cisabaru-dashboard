@@ -1,0 +1,23 @@
+{
+  "rekap_bulanan": [
+    { "bulan": "Jan", "tahun": 2026, "total": 5200000 },
+    { "bulan": "Feb", "tahun": 2026, "total": 4800000 },
+    { "bulan": "Mar", "tahun": 2026, "total": 6100000 },
+    { "bulan": "Apr", "tahun": 2026, "total": 6800000 },
+    { "bulan": "Mei", "tahun": 2026, "total": 5950000 },
+    { "bulan": "Jun", "tahun": 2026, "total": 7200000 },
+    { "bulan": "Jul", "tahun": 2026, "total": 8500000 }
+  ],
+  "pembayaran": [
+    { "id": 1, "nama": "Ahmad Suryana", "rt": "01", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Lunas", "tanggal_bayar": "2026-07-03" },
+    { "id": 2, "nama": "Dedi Kurniawan", "rt": "02", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Belum Lunas", "tanggal_bayar": null },
+    { "id": 3, "nama": "Yanto Hidayat", "rt": "03", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Lunas", "tanggal_bayar": "2026-07-05" },
+    { "id": 4, "nama": "Rina Marlina", "rt": "01", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Lunas", "tanggal_bayar": "2026-07-02" },
+    { "id": 5, "nama": "Bambang Setiawan", "rt": "04", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Belum Lunas", "tanggal_bayar": null },
+    { "id": 6, "nama": "Siti Aisyah", "rt": "02", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Lunas", "tanggal_bayar": "2026-07-10" },
+    { "id": 7, "nama": "Wawan Gunawan", "rt": "03", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Lunas", "tanggal_bayar": "2026-07-11" },
+    { "id": 8, "nama": "Euis Komariah", "rt": "01", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Belum Lunas", "tanggal_bayar": null },
+    { "id": 9, "nama": "Asep Saepudin", "rt": "04", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Lunas", "tanggal_bayar": "2026-07-14" },
+    { "id": 10, "nama": "Nining Sumarni", "rt": "02", "bulan": "Juli", "tahun": 2026, "nominal": 50000, "status": "Lunas", "tanggal_bayar": "2026-07-15" }
+  ]
+}

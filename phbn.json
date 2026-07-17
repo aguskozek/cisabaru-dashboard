@@ -1,0 +1,30 @@
+{
+  "kegiatan_aktif": [
+    {
+      "id": 1,
+      "nama": "Peringatan HUT RI Ke-81",
+      "tanggal": "2026-08-17",
+      "status": "Persiapan",
+      "anggaran": 8500000,
+      "terpakai": 3200000,
+      "panitia_ketua": "Wawan Gunawan",
+      "agenda": ["Jalan Santai", "Lomba Anak-anak", "Panjat Pinang", "Pentas Seni Warga"]
+    },
+    {
+      "id": 2,
+      "nama": "Maulid Nabi Muhammad SAW",
+      "tanggal": "2026-09-05",
+      "status": "Perencanaan",
+      "anggaran": 3000000,
+      "terpakai": 0,
+      "panitia_ketua": "Asep Saepudin",
+      "agenda": ["Pengajian Akbar", "Santunan Anak Yatim"]
+    }
+  ],
+  "panitia": [
+    { "nama": "Wawan Gunawan", "jabatan": "Ketua Panitia", "kegiatan": "HUT RI Ke-81" },
+    { "nama": "Rina Marlina", "jabatan": "Sekretaris", "kegiatan": "HUT RI Ke-81" },
+    { "nama": "Bambang Setiawan", "jabatan": "Bendahara", "kegiatan": "HUT RI Ke-81" },
+    { "nama": "Siti Aisyah", "jabatan": "Koordinator Lomba", "kegiatan": "HUT RI Ke-81" }
+  ]
+}
